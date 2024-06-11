@@ -11,7 +11,6 @@
     const submitButton=document.getElementById('submitBtn');
 
     submitButton.onclick = submitFeedback;  
-    
   
     document.getElementById('userName').innerHTML = username;
     document.getElementById('userAge').innerHTML = age;
@@ -26,6 +25,11 @@
       alert('Thank you for your valuable feedback')
 }    
 
+document.addEventListener('keydwon', function(event) {
+    if (event.key === 'Enter') {
+        submitFeedback();
+    }
+});
 
 
     
