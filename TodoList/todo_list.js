@@ -1,18 +1,18 @@
 const taskInput = document.getElementById('taskInput');
-const addTaskBtn = document.getElementById('addTaskkBtn');
+const addTaskBtn = document.getElementById('addTaskBtn');
 const taskList = document.getElementById('taskList');
-const clearCompeteBtn = document.getElementById('clearCompletedBtn');
+const clearCompletedBtn = document.getElementById('clearCompletedBtn');
+
+  clearCompletedBtn.addEventListener("click", clearCompletedTasks);
+  addTaskBtn.addEventListener("click", addTask);
 
 let tasks = [];
 
 function addTask() {
-    const taskText = taskInput.ariaValueMax.trim();
+    const taskText = taskInput.value.trim();
     if (taskText !== '') {
         tasks.push({text: taskText});
         taskInput.value = '';
-
-        addTaskBtn.addEventListener("click", addTask);
-
         displayTasks();
     }
 }
@@ -23,7 +23,7 @@ function displayTasks() {
         const li = document.createElement('li');
         li.innerHTML = `<input type="checkbox" id="task-${index}" ${task.completed ? "checked" : ""}>
                     <label for ="taks-${index}">${task.text}</label>`
-        li.querrySelector("input").addEventListener("change", () => toggleTask(index));
+        li.querySelector("input").addEventListener("change", () => toggleTask(index));
         taskList.appendChild(li);
     }) 
 }
@@ -33,10 +33,10 @@ function toggleTask(index) {
     displayTasks();
 }
 
-function clearComletedTasks() {
+function clearCompletedTasks() {
     tasks = tasks.filter(task => !task.completed);
 
-    clearCompeteBtn.addEventListener("click", clearComletedTasks);
+  
 
     displayTasks();
 }
