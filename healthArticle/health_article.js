@@ -4,12 +4,16 @@ var url = './health.json';
 xhr.open('GET', url, true); //true:asynchronous false: synchronous
 xhr.responseType = 'json';
 
+xhr.onload = function() {
+    var articles = xhr.response.articles;
+    var articlesDiv = document.getElementById('articles');       
+};
+
 
 
 articles.forEach(function(article) {
 
-    var articles = xhr.response.articles;
-    var articlesDiv = document.getElementById('articles')
+
 
     var articleDiv = document.createElement('div');
     articleDiv.classList.add('article');
@@ -23,7 +27,7 @@ articles.forEach(function(article) {
     var waysHeader = document.createElement('h3');
     waysHeader.textContent = 'Ways to Arcieve:';
 
-    var waysList = documnet.createElement('ul');
+    var waysList = document.createElement('ul');
     article.ways_to_achieve.forEach(function(way){
         var listItem = document.createElement('li');
         listItem.textContent = way;
