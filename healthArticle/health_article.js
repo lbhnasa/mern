@@ -1,5 +1,5 @@
 var xhr = new XMLHttpRequest();
-var url = './health.json';
+var url = './health_article.json';
 
 xhr.open('GET', url, true); //true:asynchronous false: synchronous
 xhr.responseType = 'json';
@@ -11,7 +11,7 @@ xhr.onload = function() {
 
 
 
-articles.forEach(function(article) {
+articles.forEach(function(articles) {
 
 
 
